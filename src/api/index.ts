@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import store from "../store";
-import { access } from "fs";
+import { HostConnection } from "../../typings";
 
 const router = Router();
 
@@ -9,7 +9,7 @@ const router = Router();
  * Displays host connections
  */
 router.get("/hosts", (req, res) => {
-  res.json(store.connections);
+  res.json(store.connections.map(scrubAccessToken));
 });
 
 /**
@@ -29,14 +29,23 @@ router.post("/connect", (req, res) => {
 /**
  * Handles a host connection request
  */
-router.post("/disconnect", (req, res) => {
+router.post("/host/:hostId/disconnect", (req, res) => {
+  const { hostId } = req.params;
   const accessToken = parseAuthorizationHeader(req.headers.authorization);
   if (!accessToken) {
     throw new Error(`Unauthorized`);
   }
 
+  if (!hostId) {
+    throw new Error("Not Found");
+  }
+
   const host = store.unregister(accessToken);
-  res.json(host);
+  if (host) {
+    return res.json(scrubAccessToken);
+  } else {
+    throw new Error("Not Found");
+  }
 });
 
 /**
@@ -55,6 +64,12 @@ function parseAuthorizationHeader(authorizationHeader?: string) {
   } else {
     return matches[1];
   }
+}
+
+function scrubAccessToken(connection: HostConnection) {
+  const { access_token, ...scrubbedConnection } = connection;
+
+  return scrubbedConnection;
 }
 
 export default router;

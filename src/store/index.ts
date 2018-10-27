@@ -1,16 +1,7 @@
 import Url from "url";
 import uuid from "uuid/v4";
 
-interface HostConnection {
-  id: string;
-  access_token: string;
-  display_name: string;
-  entry_url: string;
-}
-type HostRegistrationOffer = {
-  display_name: string;
-  entry_url: string;
-};
+import { HostConnection, HostRegistrationOffer } from "../../typings";
 
 /**
  * Global Store because databases are not MVP enough for POC
