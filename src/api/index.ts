@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import store from "../store";
-import { HostConnection } from "../../typings";
+import { ClientHost } from "../../types";
 
 const router = Router();
 
@@ -66,7 +66,7 @@ function parseAuthorizationHeader(authorizationHeader?: string) {
   }
 }
 
-function scrubAccessToken(connection: HostConnection) {
+function scrubAccessToken(connection: ClientHost) {
   const { access_token, ...scrubbedConnection } = connection;
 
   return scrubbedConnection;
