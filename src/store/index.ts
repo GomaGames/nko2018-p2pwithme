@@ -1,13 +1,20 @@
 import * as Url from "url";
+import * as uuid from "uuid/v4";
 
 type HostConnection = {
-  hostname: string;
-  port: number;
+  id: string;
+  access_token: string;
+  display_name: string;
+  entry_url: string;
 };
 type HostRegistrationOffer = {
-  endpoint: string;
+  display_name: string;
+  entry_url: string;
 };
 
+/**
+ * Global Store because databases are not MVP enough for POC
+ */
 class Store {
   public readonly connections: HostConnection[];
 
@@ -29,15 +36,15 @@ class Store {
  * @param request An offer to register a host connection with the server
  */
 function validateOffer(request: HostRegistrationOffer): HostConnection {
-  const { hostname, port } = Url.parse(request.endpoint);
+  const { display_name, entry_url } = request;
+  const { hostname, port } = Url.parse(entry_url);
 
-  if (!(hostname && port)) {
-    throw new Error(`Invalid host connection: ${request}`);
-  }
-
+  const length = store.connections.length + 1;
   return {
-    hostname,
-    port: parseInt(port)
+    id: uuid(),
+    access_token: uuid(),
+    display_name: display_name || `Lobby ${length}`,
+    entry_url
   };
 }
 
