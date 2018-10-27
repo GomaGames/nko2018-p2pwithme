@@ -1,8 +1,11 @@
 import * as express from "express";
+import * as bodyParser from "body-parser";
 
 import apiRouter from "./api";
 
 const app = express();
+
+app.use(bodyParser({ extended: true }));
 
 app.use("/api", apiRouter);
 
