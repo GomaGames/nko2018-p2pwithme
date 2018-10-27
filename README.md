@@ -19,3 +19,10 @@ If anything, it's a proxy server that shows whos actively connected to it.
 # Notes
 
 > Mother always warned me not to take links from strangers!
+
+# Build and Run
+
+```sh
+make docker
+make run
+```
