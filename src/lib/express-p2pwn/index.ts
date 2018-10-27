@@ -11,15 +11,15 @@ class P2PwnAgent {
   private socket: WebSocket;
   public readonly createdAt: Date | number;
 
-  constructor(options: AgentOptions) {
+  constructor(options: AgentOptions & Partial<ClientHost>) {
     this.createdAt = Date.now();
     this.socket = new WebSocket(options.websocketEndpoint);
 
     this.socket.on("open", () => {
       this.send({
         type: "REGISTER",
-        display_name: "Best game ever",
-        entry_url: "https://localhost:3001",
+        display_name: options.display_name,
+        entry_url: options.entry_url,
         timestamp: Date.now()
       });
       this.setState({});
@@ -56,7 +56,7 @@ class P2PwnAgent {
 
 export function initialize(
   app: Application,
-  options: AgentOptions
+  options: AgentOptions & Partial<ClientHost>
 ): Application {
   const agent = new P2PwnAgent(options);
 
