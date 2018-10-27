@@ -26,7 +26,6 @@ class P2PwnAgent {
         entry_url: options.entry_url,
         timestamp: Date.now()
       });
-      this.setState({});
     });
 
     this.socket.on("message", event => {
