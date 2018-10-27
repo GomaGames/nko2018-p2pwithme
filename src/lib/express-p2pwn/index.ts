@@ -26,7 +26,7 @@ class P2PwnAgent {
     });
 
     this.socket.on("message", event => {
-      console.log(event);
+      console.debug(event);
     });
   }
 
