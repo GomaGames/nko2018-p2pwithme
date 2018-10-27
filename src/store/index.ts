@@ -1,12 +1,12 @@
-import * as Url from "url";
-import * as uuid from "uuid/v4";
+import Url from "url";
+import uuid from "uuid/v4";
 
-type HostConnection = {
+interface HostConnection {
   id: string;
   access_token: string;
   display_name: string;
   entry_url: string;
-};
+}
 type HostRegistrationOffer = {
   display_name: string;
   entry_url: string;
@@ -28,6 +28,18 @@ class Store {
     this.connections.push(registration);
 
     return registration;
+  }
+
+  unregister(access_token: string): HostConnection | null {
+    const connectionIndex = this.connections.findIndex(
+      connection => connection.access_token === access_token
+    );
+
+    if (connectionIndex > -1) {
+      return this.connections.splice(connectionIndex, 1)[0];
+    } else {
+      return null;
+    }
   }
 }
 
