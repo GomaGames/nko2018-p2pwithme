@@ -1,13 +1,13 @@
 import Url from "url";
 import uuid from "uuid/v4";
 
-import { HostConnection, HostRegistrationOffer } from "../../typings";
+import { ClientHost, HostRegistrationOffer } from "../../types";
 
 /**
  * Global Store because databases are not MVP enough for POC
  */
 class Store {
-  public readonly connections: HostConnection[];
+  public readonly connections: ClientHost[];
 
   constructor() {
     this.connections = [];
@@ -21,7 +21,7 @@ class Store {
     return registration;
   }
 
-  unregister(access_token: string): HostConnection | null {
+  unregister(access_token: string): ClientHost | null {
     const connectionIndex = this.connections.findIndex(
       connection => connection.access_token === access_token
     );
@@ -38,7 +38,7 @@ class Store {
  * Validates the offer is valid before passing it to the store.
  * @param request An offer to register a host connection with the server
  */
-function validateOffer(request: HostRegistrationOffer): HostConnection {
+function validateOffer(request: HostRegistrationOffer): ClientHost {
   const { display_name, entry_url } = request;
   const { hostname, port } = Url.parse(entry_url);
 
