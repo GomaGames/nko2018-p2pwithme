@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>P2Pwn Me</title>
+    <style>
+        .container { 
+            margin: 0 auto; 
+            min-height: 900px;
+            padding: 2rem;
+        }
+
+        .home h1 {
+            position: relative;
+            font-size: 6rem;
+            margin-top: 12vh;
+            margin-bottom: 6rem;
+        }
+
+        .home h1::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            width: 175px;
+            height: 4px;
+            background: #ff5e00;
+        }
+
+        h2 {
+            position: relative;
+            font-size: 5rem;
+            margin-top: 6rem;
+            margin-bottom: 3rem;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            width: 75px;
+            height: 3px;
+            background: #ff5e00;
+        }
+
+        .intro {
+            height: calc(100vh - 50rem);
+        }
+
+        .content {
+            margin: -2rem;
+            padding: 2rem;
+            background: #fff;
+            color: #222;
+            padding-bottom: 15rem;
+            box-shadow: 0 0 150px 0 #000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        .vote {
+            position: absolute;
+            right: 30px;
+            width: 100px;
+            top: 20px;
+        }
+
+        .vote img {
+            width: 100%;
+        }
+
+        .devs {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .devs a {
+            display: flex;
+            width: 45%;
+            margin: 1rem 0.5rem 3rem;
+            box-shadow: 0 0 0.8rem 0 rgba(0, 0, 0, 0.1);
+            padding: 0.5rem;
+            text-decoration: none;
+            color: #ff5e00;
+        }
+
+        .devs a:hover {
+            background: #fbfbfb;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .dev-avatar {
+            width: 75px;
+            height: 75px;
+            background-size: cover;
+        }
+
+        .dev-stuff {
+            margin-left: 1.5rem;
+            font-size: 1.5rem;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.8;
+        }
+
+        .dev-stuff h3 {
+            font-weight: 500;
+            color: #222;
+        }
+    </style>
+</head>
+
+<body class="home">
+    <a class="vote" href="https://www.nodeknockout.com/entries/162-node-ice/vote" target="popup" onclick="window.open('https://www.nodeknockout.com/entries/162-node-ice/vote?popup=true','popup','width=700,height=600,scrollbars=no,resizable=no'); return false;">
+        <img src="../assets/images/nko-logo.png" alt="Vote for us" />
+    </a>
+
+    <div class="container">
+        <section class="intro">
+            <header>
+                <h1>P2PWN</h1>
+            </header>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque itaque libero, quos hic culpa quaerat,
+                quae adipisci autem repellendus nam modi velit. Odio nulla esse voluptatum a, architecto dolore debitis
+                doloribus quos repellendus itaque provident
+            </p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, optio itaque error dolorem sunt
+                dolorum,
+                beatae mollitia et eveniet asperiores voluptates at ad, quod voluptas. Eveniet nemo libero distinctio.
+                Animi.</p>
+
+            <a class="button" href="/lobby">Go to lobby</a>
+        </section>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <section>
+                <h2>What?</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque itaque libero, quos hic culpa
+                    quaerat,
+                    quae adipisci autem repellendus nam modi velit. Odio nulla esse voluptatum a, architecto dolore
+                    debitis
+                    doloribus quos repellendus itaque provident
+                </p>
+                <p> Vel eos hic molestiae dignissimos amet ad reprehenderit
+                    animi libero, officia perferendis dolores dolor. Ad nobis minima ab debitis praesentium nesciunt,
+                    explicabo eaque ea! Autem dolores adipisci eos perspiciatis, vero reprehenderit ducimus aut nostrum
+                    numquam porro magnam quasi enim sint id facere quis voluptas voluptate libero odio accusamus
+                    impedit
+                    nihil dignissimos? A quos, minima ipsa dolores distinctio, id eaque quisquam eveniet architecto
+                    cumque
+                    cupiditate beatae.</p>
+
+            </section>
+
+
+            <section>
+                <h2>Start using it</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque itaque libero, quos hic culpa
+                    quaerat,
+                    quae adipisci autem repellendus nam modi velit. Odio nulla esse voluptatum a, architecto dolore
+                    debitis
+                    doloribus quos repellendus itaque provident
+                </p>
+                <p> Vel eos hic molestiae dignissimos amet ad reprehenderit
+                    animi libero, officia perferendis dolores dolor. Ad nobis minima ab debitis praesentium nesciunt,
+                    explicabo eaque ea! Autem dolores adipisci eos perspiciatis, vero reprehenderit ducimus aut nostrum
+                    numquam porro magnam quasi enim sint id facere quis voluptas voluptate libero odio accusamus
+                    impedit
+                    nihil dignissimos? A quos, minima ipsa dolores distinctio, id eaque quisquam eveniet architecto
+                    cumque
+                    cupiditate beatae.</p>
+
+            </section>
+
+
+            <section>
+                <h2>Developer Guide</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque itaque libero, quos hic culpa
+                    quaerat,
+                    quae adipisci autem repellendus nam modi velit. Odio nulla esse voluptatum a, architecto dolore
+                    debitis
+                    doloribus quos repellendus itaque provident
+                </p>
+                <p> Vel eos hic molestiae dignissimos amet ad reprehenderit
+                    animi libero, officia perferendis dolores dolor. Ad nobis minima ab debitis praesentium nesciunt,
+                    explicabo eaque ea! Autem dolores adipisci eos perspiciatis, vero reprehenderit ducimus aut nostrum
+                    numquam porro magnam quasi enim sint id facere quis voluptas voluptate libero odio accusamus
+                    impedit
+                    nihil dignissimos? A quos, minima ipsa dolores distinctio, id eaque quisquam eveniet architecto
+                    cumque
+                    cupiditate beatae.</p>
+            </section>
+
+
+            <section>
+                <h2>Created By</h2>
+                <div class="devs">
+                    <a href="https://github.com/theRemix" target="_blank">
+                        <div class="dev-avatar" style="background-image: url(https://avatars2.githubusercontent.com/u/132562?s=460&amp;v=4)"></div>
+                        <div class="dev-stuff">
+                            <h3>Jon Borgonia</h3>
+                            <h4>@theremix</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/thgaskell" target="_blank">
+                        <div class="dev-avatar" style="background-image: url(https://avatars3.githubusercontent.com/u/844945?s=460&amp;v=4)"></div>
+                        <div class="dev-stuff">
+                            <h3>Tony Gaskell</h3>
+                            <h4>@thgaskell</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/mentalgrinds" target="_blank">
+                        <div class="dev-avatar" style="background-image: url(https://avatars2.githubusercontent.com/u/140933?s=460&amp;v=4)"></div>
+                        <div class="dev-stuff">
+                            <h3>Jesse Copeland</h3>
+                            <h4>@mentalgrinds</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/epilande" target="_blank">
+                        <div class="dev-avatar" style="background-image: url(https://avatars0.githubusercontent.com/u/3210082?s=460&amp;v=4)"></div>
+                        <div class="dev-stuff">
+                            <h3>Emmanuel Pilande</h3>
+                            <h4>@epilande</h4>
+                        </div>
+                    </a>
+                </div>
+
+            </section>
+
+
+        </div>
+    </div>
+
+    <script src="https://www.nodeknockout.com/entries/162-node-ice/vote.js" type="text/javascript"></script>
+</body>
+
+</html>
