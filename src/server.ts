@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, '..', 'views'));
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-  res.render('../views/lobby', { hosts: store.hosts });
+  res.render('lobby', { hosts: store.hosts });
 });
 app.use("/api", apiRouter);
 
