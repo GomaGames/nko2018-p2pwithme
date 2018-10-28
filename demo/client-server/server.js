@@ -1,6 +1,6 @@
-import express from "express";
+const express = require("express");
 
-import * as p2pwn from "../../src/lib/express-p2pwn";
+const p2pwn = require("../../dist/lib/express-p2pwn");
 
 const app = express();
 
