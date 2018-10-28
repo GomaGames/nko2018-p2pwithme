@@ -7,27 +7,27 @@ import { ClientHost, HostRegistrationOffer } from "../../types";
  * Global Store because databases are not MVP enough for POC
  */
 class Store {
-  public readonly connections: ClientHost[];
+  public readonly hosts: ClientHost[];
 
   constructor() {
-    this.connections = [];
+    this.hosts = [];
   }
 
   register(registrationOffer: HostRegistrationOffer) {
     const registration = validateOffer(registrationOffer);
 
-    this.connections.push(registration);
+    this.hosts.push(registration);
 
     return registration;
   }
 
   unregister(access_token: string): ClientHost | null {
-    const connectionIndex = this.connections.findIndex(
+    const connectionIndex = this.hosts.findIndex(
       connection => connection.access_token === access_token
     );
 
     if (connectionIndex > -1) {
-      return this.connections.splice(connectionIndex, 1)[0];
+      return this.hosts.splice(connectionIndex, 1)[0];
     } else {
       return null;
     }
@@ -42,7 +42,7 @@ function validateOffer(request: HostRegistrationOffer): ClientHost {
   const { display_name, entry_url } = request;
   const { hostname, port } = Url.parse(entry_url);
 
-  const length = store.connections.length + 1;
+  const length = store.hosts.length + 1;
   return {
     id: uuid(),
     access_token: uuid(),
