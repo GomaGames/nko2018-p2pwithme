@@ -1,7 +1,7 @@
 import WebSocket from "ws";
 import { Application } from "express";
 
-import { ClientServerWebSocketMessage, ClientHost } from "../../../types";
+import { ClientServerWebSocketMessage, ClientHost, RegisterEvent } from "../../../types";
 
 type AgentOptions = {
   websocketEndpoint: string;
@@ -16,7 +16,7 @@ class P2PwnAgent {
     this.socket = new WebSocket(options.websocketEndpoint);
 
     this.socket.on("open", () => {
-      this.send({
+      this.send(<RegisterEvent>{
         type: "REGISTER",
         display_name: options.display_name,
         entry_url: options.entry_url,
