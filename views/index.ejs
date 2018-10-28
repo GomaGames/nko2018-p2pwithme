@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>P2Pwn Me</title>
+    <style>
+        .container {
+            margin: 0 auto;
+            min-height: 900px;
+            padding: 2rem;
+        }
+
+        .home h1 {
+            position: relative;
+            font-size: 6rem;
+            margin-top: 12vh;
+            margin-bottom: 6rem;
+        }
+
+        .home h1::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            width: 175px;
+            height: 4px;
+            background: #ff5e00;
+        }
+
+        h2 {
+            position: relative;
+            font-size: 5rem;
+            margin-top: 6rem;
+            margin-bottom: 3rem;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            width: 75px;
+            height: 3px;
+            background: #ff5e00;
+        }
+
+        .intro {
+            height: calc(100vh - 50rem);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            font-size: 2rem;
+        }
+
+        .content {
+            margin: -2rem;
+            padding: 2rem;
+            background: #fff;
+            color: #222;
+            padding-bottom: 15rem;
+            box-shadow: 0 0 150px 0 #000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        .vote {
+            position: absolute;
+            right: 30px;
+            width: 100px;
+            top: 20px;
+        }
+
+        .vote img {
+            width: 100%;
+        }
+
+        .devs {
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .devs a {
+            display: flex;
+            width: 45%;
+            margin: 1rem 0.5rem 3rem;
+            box-shadow: 0 0 0.8rem 0 rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: #ff5e00;
+        }
+
+        .devs a:hover {
+            background: #fbfbfb;
+            box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.15);
+        }
+
+        .dev-avatar {
+            width: 75px;
+            height: 75px;
+            background-size: cover;
+        }
+
+        .dev-stuff {
+            margin-left: 1.8rem;
+            font-size: 1.5rem;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.8;
+        }
+
+        .dev-stuff h3 {
+            font-weight: 500;
+            color: #222;
+        }
+    </style>
+</head>
+
+<body class="home">
+    <a class="vote" href="https://www.nodeknockout.com/entries/162-node-ice/vote" target="popup" onclick="window.open('https://www.nodeknockout.com/entries/162-node-ice/vote?popup=true','popup','width=700,height=600,scrollbars=no,resizable=no'); return false;">
+        <img src="../assets/images/nko-logo.png" alt="Vote for us" />
+    </a>
+
+    <div class="container">
+        <section class="intro">
+            <header>
+                <h1>P2PWN</h1>
+            </header>
+
+            <p>
+                Remember the days of hanging out in the lobby of battle.net or C&C, looking to PWN some noobs with your 133t skills?
+                Now there is a shared lobby that allows anyone to host peer-to-peer connections with anyone across the Intertubes&trade;
+
+            </p>
+
+            <p>P2PWN is a broker for connection between the clients, but does not handle any of the traffic between connection. It seems like every big Intertubes&trade;
+                company wants you to use their service, so they can see everything you do, when the fact is you should be able to connect with just the people you choose to.
+            </p>
+
+            <a class="button" href="/lobby">Go to lobby</a>
+        </section>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <section>
+                <h2>What?</h2>
+                <p>
+
+P2PWN is a multiplayer lobby service for peer host discovery.
+
+You can host your own games, or join someone elses. Just like we used to do in the 90s.
+
+The P2PWN Lobby websocket connection broker also provides a list of active games that anyone can join.
+                </p>
+
+            </section>
+
+
+            <section>
+                <h2>Start using it</h2>
+                <p>
+                    P2PWN was created to let you and your friends easily create peer-to-peer connections for whatever applications or games you want to host.
+                </p>
+                <p>
+                    Here are a couple of games to get you started.
+                    <ul>
+                        <li><a href="https://theremix.github.io/P2PWN-Go-Maze/">Go Maze</a></li>
+                        <li><a href="https://github.com/epilande/p2pwnme-space-wars">Space Wars🚀</a></li>
+                    </ul>
+                </p>
+
+            </section>
+
+
+            <section>
+                <h2>Developer Guide</h2>
+                <p>
+                  Integrate with our P2PWN peer discovery service so that your players can easily create lobbies and join currently active games being hosted.
+                </p>
+                <p>
+                Leverage the P2PWN <a href="./lobby">Lobby gui</a> for live updates of active rooms.
+                P2PWN also has a rich API with full control via HTTP REST and websocket requests.
+                Review the <a href="https://github.com/Hackbit/nko2018-p2pwithme/wiki/API-Documentation">API documentation here</a>.
+                </p>
+                <p>
+                  The best way to get started is to use one of our reference projects.
+                  <ul style="font-size: 2rem">
+                    <li><a href="https://github.com/theRemix/p2pwn-ready-node-wss">P2PWN WSS Starter Kit for Node</a></li>
+                    <li><a href="https://github.com/epilande/p2pwnme-space-wars">Full featured browser game demo in JS</a></li>
+                    <li><a href="https://github.com/GomaGames/P2PWN-BoardRoom">Minimal browser game demo in JS</a></li>
+                    <li><a href="https://github.com/theRemix/p2pwn-ready-go-wss">P2PWN WSS Starter Kit for Go</a></li>
+                    <li><a href="https://github.com/theRemix/P2PWN-Go-Maze">Full featured desktop game demo in Go</a> with host and lobby features</li>
+
+                  </ul>
+                </p>
+                <p>
+                For more help with integrating P2PWN for your project, check our <a href="https://github.com/Hackbit/nko2018-p2pwithme/wiki/Integration-Guide">Integration Guide</a>
+                </p>
+                <p>
+                Also check our <a href="https://github.com/Hackbit/nko2018-p2pwithme/wiki">Wiki on Github</a> for more updates and roadmap.
+                </p>
+            </section>
+
+
+            <section>
+                <h2>Created By</h2>
+                <div class="devs">
+                    <a href="https://github.com/theRemix" target="_blank">
+                        <div class="dev-avatar" style="background-image: url(https://avatars2.githubusercontent.com/u/132562?s=460&amp;v=4)"></div>
+                        <div class="dev-stuff">
+                            <h3>Jon Borgonia</h3>
+                            <h4>@theremix</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/thgaskell" target="_blank">
+                        <div class="dev-avatar" style="background-image: url(https://avatars3.githubusercontent.com/u/844945?s=460&amp;v=4)"></div>
+                        <div class="dev-stuff">
+                            <h3>Tony Gaskell</h3>
+                            <h4>@thgaskell</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/mentalgrinds" target="_blank">
+                        <div class="dev-avatar" style="background-image: url(https://avatars2.githubusercontent.com/u/140933?s=460&amp;v=4)"></div>
+                        <div class="dev-stuff">
+                            <h3>Jesse Copeland</h3>
+                            <h4>@mentalgrinds</h4>
+                        </div>
+                    </a>
+                    <a href="https://github.com/epilande" target="_blank">
+                        <div class="dev-avatar" style="background-image: url(https://avatars0.githubusercontent.com/u/3210082?s=460&amp;v=4)"></div>
+                        <div class="dev-stuff">
+                            <h3>Emmanuel Pilande</h3>
+                            <h4>@epilande</h4>
+                        </div>
+                    </a>
+                </div>
+
+            </section>
+
+
+        </div>
+    </div>
+
+    <script src="https://www.nodeknockout.com/entries/162-node-ice/vote.js" type="text/javascript"></script>
+</body>
+
+</html>
