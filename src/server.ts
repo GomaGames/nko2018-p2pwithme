@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import WebSocket from "ws";
-
+import ping from "./utils/ping";
 import store from "./store";
 import apiRouter from "./api";
 import {
@@ -28,6 +28,15 @@ app.use("/api", apiRouter);
 const server = app.listen(process.env.PORT, () => {
   console.log(`Listening on ${process.env.PORT}`);
 });
+
+setInterval(async () => {
+  store.hosts.forEach(host => {
+    return ping(host.entry_url).catch(() => {
+      console.log("ERROR");
+      store.unregister(host.access_token);
+    });
+  });
+}, 30 * 1000); // Every 30 seconds
 
 const wss = new WebSocket.Server({ server });
 
