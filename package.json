@@ -18,7 +18,7 @@
     "build": "babel ./src --out-dir dist --extensions \".ts\"",
     "dev:cs": "nodemon --watch demo/client-server --exec node demo/client-server/server.js",
     "dev": "nodemon -e ts --exec node --require dotenv-safe/config --require ts-node/register src/server.ts",
-    "start": "node --require dotenv-safe/config dist/server.js",
+    "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
