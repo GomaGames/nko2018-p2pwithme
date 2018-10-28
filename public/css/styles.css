@@ -116,6 +116,8 @@ hr {
 }
 
 .button:hover {
+  padding-top: 1.7rem;
+  padding-bottom: 1.5rem;
   background: linear-gradient(
     to bottom,
     #000 2%,
