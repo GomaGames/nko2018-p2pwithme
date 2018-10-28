@@ -1,10 +1,12 @@
 export interface ClientHost {
   id: string;
   access_token: string;
+  app_name: string;
   display_name: string;
   entry_url: string;
   healthcheck_url: string;
   socket?: WebSocket;
+  [key: string]: any;
 }
 
 export type HostRegistrationOffer = {
