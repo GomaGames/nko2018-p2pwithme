@@ -1,7 +1,11 @@
 import WebSocket from "ws";
 import { Application } from "express";
 
-import { ClientServerWebSocketMessage, ClientHost, RegisterEvent } from "../../../types";
+import {
+  ClientServerWebSocketMessage,
+  ClientHost,
+  RegisterEvent
+} from "../../../types";
 
 type AgentOptions = {
   websocketEndpoint: string;
@@ -22,7 +26,6 @@ class P2PwnAgent {
         entry_url: options.entry_url,
         timestamp: Date.now()
       });
-      this.setState({});
     });
 
     this.socket.on("message", event => {
