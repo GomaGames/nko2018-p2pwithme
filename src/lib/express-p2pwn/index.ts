@@ -68,10 +68,7 @@ type Options = {
   meta?: object;
 };
 
-export async function initialize(
-  app: Application,
-  options: Options
-): Application {
+export function initialize(app: Application, options: Options): Application {
   const meta = options.meta || {};
   let entry_url = options.entry_url;
   let healthcheck_url = options.healthcheck_url || entry_url;
@@ -85,7 +82,7 @@ export async function initialize(
       websocketEndpoint: "wss://p2pwn-production.herokuapp.com"
     });
   } else if (typeof options.port === "number") {
-    await new Promise<P2PwnAgent>((resolve, reject) => {
+    new Promise<P2PwnAgent>((resolve, reject) => {
       localtunnel(options.port, (err, { url }) => {
         if (err) {
           reject(err);
