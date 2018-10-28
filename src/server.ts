@@ -5,7 +5,11 @@ import WebSocket from "ws";
 
 import store from "./store";
 import apiRouter from "./api";
-import { ClientServerWebSocketMessage, HostRegistrationOffer } from "../types";
+import {
+  ClientServerWebSocketMessage,
+  HostRegistrationOffer,
+  ClientHost
+} from "../types";
 
 const app = express();
 
@@ -34,20 +38,40 @@ wss.on("connection", function connection(ws) {
     try {
       const data = <ClientServerWebSocketMessage>JSON.parse(buffer.toString());
 
+      let host = null;
+      let payload = null;
       switch (data.type) {
         case "REGISTER":
-          let payload = <HostRegistrationOffer & ClientServerWebSocketMessage>(
-            data
-          );
+          payload = <HostRegistrationOffer & ClientServerWebSocketMessage>data;
 
-          const host = store.register(payload);
+          host = store.register(payload);
           connections.set(ws, host);
           ws.send(
             JSON.stringify({
               type: "REGISTRATION",
-              ...host
+              ...host,
+              timestamp: Date.now()
             })
           );
+          break;
+        case "UPDATE":
+          payload = <ClientHost & ClientServerWebSocketMessage>data.data;
+          host = connections.get(ws);
+          host = store.update(host.id, payload, host.access_token);
+
+          console.log({
+            type: "UPDATED",
+            ...host,
+            timestamp: Date.now()
+          });
+          ws.send(
+            JSON.stringify({
+              type: "UPDATED",
+              ...host,
+              timestamp: Date.now()
+            })
+          );
+          break;
       }
     } catch (err) {
       console.error(err.message);

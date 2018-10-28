@@ -32,6 +32,7 @@ class Store {
       return null;
     }
   }
+
   update(id: string, data: Partial<ClientHost>, access_token: string) {
     const host = this.hosts.find(
       host => host.id === id && host.access_token === access_token

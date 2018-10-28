@@ -60,12 +60,12 @@ class P2PwnAgent {
 export function initialize(
   app: Application,
   options: AgentOptions & Partial<ClientHost>
-): Application {
+): P2PwnAgent {
   const agent = new P2PwnAgent(options);
 
   app.get("/p2pwn/stats", (req, res, next) => {
     res.json(agent.stats);
   });
 
-  return app;
+  return agent;
 }
