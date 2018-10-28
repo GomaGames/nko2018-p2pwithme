@@ -1,6 +1,6 @@
 FROM node:alpine
 
-ENV EXPRESS_SERVER_PORT=8080
+ENV PORT 8080
 
 WORKDIR /app
 COPY . /app
