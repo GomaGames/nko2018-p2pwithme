@@ -19,17 +19,14 @@ router.post("/connect", (req, res) => {
   if (!req.body.entry_url) {
     throw new Error(`Invalid request: ${req.body}`);
   }
-  const host = store.register({
-    display_name: req.body.display_name,
-    entry_url: req.body.entry_url
-  });
+  const host = store.register(req.body);
   res.json(host);
 });
 
 /**
  * Handles updating an existing host
  */
-router.post("/host/:hostId", (req, res) => {
+router.patch("/host/:hostId", (req, res) => {
   const { hostId } = req.params;
   const accessToken = parseAuthorizationHeader(req.headers.authorization);
 
@@ -45,8 +42,12 @@ router.post("/host/:hostId", (req, res) => {
   }
 
   const host = store.update(hostId, req.body, accessToken);
-
-  res.json(host);
+  if (host) {
+    res.json(scrubAccessToken(host));
+  }
+  {
+    throw new Error("Not Found");
+  }
 });
 
 /**
@@ -65,7 +66,7 @@ router.post("/host/:hostId/disconnect", (req, res) => {
 
   const host = store.unregister(accessToken);
   if (host) {
-    return res.json(scrubAccessToken);
+    return res.json(scrubAccessToken(host));
   } else {
     throw new Error("Not Found");
   }

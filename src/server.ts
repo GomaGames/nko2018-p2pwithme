@@ -59,11 +59,6 @@ wss.on("connection", function connection(ws) {
           host = connections.get(ws);
           host = store.update(host.id, payload, host.access_token);
 
-          console.log({
-            type: "UPDATED",
-            ...host,
-            timestamp: Date.now()
-          });
           ws.send(
             JSON.stringify({
               type: "UPDATED",
