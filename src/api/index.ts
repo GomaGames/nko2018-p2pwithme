@@ -9,7 +9,7 @@ const router = Router();
  * Displays host connections
  */
 router.get("/hosts", (req, res) => {
-  res.json(store.connections.map(scrubAccessToken));
+  res.json(store.hosts.map(scrubAccessToken));
 });
 
 /**
