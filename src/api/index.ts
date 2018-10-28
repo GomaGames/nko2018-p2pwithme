@@ -9,10 +9,14 @@ const router = Router();
  * Displays host connections
  */
 router.get("/hosts", (req, res) => {
-  const { app_name } = req.query;
-  let hosts = store.hosts.map(scrubAccessToken);
-  if (app_name) {
-    hosts = hosts.filter(host => host.app_name === app_name);
+  const filters = req.query;
+  const filterKeys = Object.keys(filters);
+  let hosts: Partial<ClientHost>[] = store.hosts.map(scrubAccessToken);
+
+  if (filterKeys.length > 0) {
+    hosts = hosts.filter(host =>
+      filterKeys.every(key => host[key] === filters[key])
+    );
   }
   res.json(hosts);
 });
