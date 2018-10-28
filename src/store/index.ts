@@ -16,6 +16,10 @@ class Store {
   register(registrationOffer: HostRegistrationOffer) {
     const registration = validateOffer(registrationOffer);
 
+    if (!registration.healthcheck_url) {
+      registration.healthcheck_url = registration.entry_url;
+    }
+    console.log(registration);
     this.hosts.push(registration);
 
     return registration;

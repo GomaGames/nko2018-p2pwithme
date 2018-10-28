@@ -9,7 +9,16 @@ const router = Router();
  * Displays host connections
  */
 router.get("/hosts", (req, res) => {
-  res.json(store.hosts.map(scrubAccessToken));
+  const filters = req.query;
+  const filterKeys = Object.keys(filters);
+  let hosts: Partial<ClientHost>[] = store.hosts.map(scrubAccessToken);
+
+  if (filterKeys.length > 0) {
+    hosts = hosts.filter(host =>
+      filterKeys.every(key => host[key] === filters[key])
+    );
+  }
+  res.json(hosts);
 });
 
 /**
@@ -19,6 +28,7 @@ router.post("/connect", (req, res) => {
   if (!req.body.entry_url) {
     throw new Error(`Invalid request: ${req.body}`);
   }
+
   const host = store.register(req.body);
   res.json(host);
 });
@@ -90,7 +100,7 @@ function parseAuthorizationHeader(authorizationHeader?: string) {
   }
 }
 
-function scrubAccessToken(connection: ClientHost) {
+function scrubAccessToken(connection: ClientHost): Partial<ClientHost> {
   const { access_token, ...scrubbedConnection } = connection;
 
   return scrubbedConnection;
