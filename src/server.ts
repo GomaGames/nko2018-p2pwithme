@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import path from 'path';
+import path from "path";
 import WebSocket from "ws";
 
 import store from "./store";
@@ -11,18 +11,18 @@ const app = express();
 
 app.use(bodyParser({ extended: true }));
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '..', 'views'));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "..", "views"));
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-app.get('/', (req, res) => {
-  res.render('lobby', { hosts: store.hosts });
+app.get("/", (req, res) => {
+  res.render("lobby", { hosts: store.hosts });
 });
 app.use("/api", apiRouter);
 
-const server = app.listen(process.env.EXPRESS_SERVER_PORT, () => {
-  console.log(`Listening on ${process.env.EXPRESS_SERVER_PORT}`);
+const server = app.listen(process.env.PORT, () => {
+  console.log(`Listening on ${process.env.PORT}`);
 });
 
 const wss = new WebSocket.Server({ server });
