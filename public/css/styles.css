@@ -28,9 +28,19 @@ p {
   margin-bottom: 2rem;
 }
 
-header h1 {
+.lobby-header h1 {
+  position: relative;
   font-size: 4rem;
   margin-top: 4rem;
+}
+
+.lobby-header h1::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  width: 116px;
+  height: 4px;
+  background: #ff5e00;
 }
 
 .container {
