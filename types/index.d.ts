@@ -3,12 +3,14 @@ export interface ClientHost {
   access_token: string;
   display_name: string;
   entry_url: string;
+  healthcheck_url: string;
   socket?: WebSocket;
 }
 
 export type HostRegistrationOffer = {
   display_name: string;
   entry_url: string;
+  healthcheck_url: string;
 };
 
 export interface RegisterEvent

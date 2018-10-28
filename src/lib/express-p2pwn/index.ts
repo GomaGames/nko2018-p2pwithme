@@ -24,6 +24,7 @@ class P2PwnAgent {
         type: "REGISTER",
         display_name: options.display_name,
         entry_url: options.entry_url,
+        healthcheck_url: options.healthcheck_url || options.entry_url,
         timestamp: Date.now()
       });
     });

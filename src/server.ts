@@ -10,6 +10,7 @@ import {
   HostRegistrationOffer,
   ClientHost
 } from "../types";
+import { Socket } from "dgram";
 
 const app = express();
 
@@ -31,8 +32,8 @@ const server = app.listen(process.env.PORT, () => {
 
 setInterval(async () => {
   store.hosts.forEach(host => {
-    return ping(host.entry_url).catch(() => {
-      console.log("ERROR");
+    const { healthcheck_url } = host;
+    return ping(healthcheck_url).catch(() => {
       store.unregister(host.access_token);
     });
   });

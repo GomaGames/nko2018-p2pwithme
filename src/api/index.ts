@@ -19,6 +19,7 @@ router.post("/connect", (req, res) => {
   if (!req.body.entry_url) {
     throw new Error(`Invalid request: ${req.body}`);
   }
+
   const host = store.register(req.body);
   res.json(host);
 });
@@ -90,7 +91,7 @@ function parseAuthorizationHeader(authorizationHeader?: string) {
   }
 }
 
-function scrubAccessToken(connection: ClientHost) {
+function scrubAccessToken(connection: ClientHost): Partial<ClientHost> {
   const { access_token, ...scrubbedConnection } = connection;
 
   return scrubbedConnection;
