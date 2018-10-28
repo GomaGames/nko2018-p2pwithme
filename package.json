@@ -2,7 +2,7 @@
   "name": "nko2018-p2pwithme",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/lib/express-p2pwn/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hackbit/nko2018-p2pwithme.git"
@@ -15,6 +15,8 @@
   },
   "homepage": "https://github.com/Hackbit/nko2018-p2pwithme#readme",
   "scripts": {
+    "clean": "rimraf dist",
+    "prepare": "npm run clean && npm run build",
     "build": "babel ./src --out-dir dist --extensions \".ts\"",
     "dev:cs": "nodemon --watch demo/client-server --exec node demo/client-server/server.js",
     "dev": "nodemon -e ts --exec node --require dotenv-safe/config --require ts-node/register src/server.ts",
@@ -35,6 +37,7 @@
     "@types/ws": "6.0.1",
     "dotenv-safe": "6.1.0",
     "nodemon": "1.18.5",
+    "rimraf": "2.6.2",
     "typescript": "3.1.3"
   },
   "dependencies": {
@@ -43,7 +46,6 @@
     "express": "4.16.4",
     "localtunnel": "1.9.1",
     "request": "2.88.0",
-    "ts-node": "7.0.1",
     "uuid": "3.3.2",
     "ws": "6.1.0"
   }
