@@ -5,6 +5,7 @@ export interface ClientHost {
   display_name: string;
   entry_url: string;
   socket?: WebSocket;
+  [key: string]: any;
 }
 
 export type HostRegistrationOffer = {
