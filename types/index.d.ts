@@ -8,7 +8,7 @@ export interface ClientHost {
 }
 
 export type HostRegistrationOffer = {
-  display_name: string;
+  display_name?: string;
   entry_url: string;
   healthcheck_url: string;
 };
