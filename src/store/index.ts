@@ -67,6 +67,7 @@ function validateOffer(request: HostRegistrationOffer): ClientHost {
 
   const length = store.hosts.length + 1;
   return {
+    ...request,
     id: uuid(),
     access_token: uuid(),
     display_name: display_name || `Lobby ${length}`,
