@@ -8,4 +8,4 @@ docker:
 					docker build -t $(IMAGE):$(TAG) .
 
 run:
-					docker run -t --rm -p $(PORT):$(PORT) $(IMAGE):$(TAG)
+					docker run -it --rm -p $(PORT):$(PORT) $(IMAGE):$(TAG)
