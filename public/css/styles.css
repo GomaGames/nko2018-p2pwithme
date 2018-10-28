@@ -13,27 +13,35 @@ body {
   color:white;
 }
 
+header h1 {
+  font-size: 4rem;
+}
+
 .container {
-  max-width: 80rem;
-  min-height: 40rem;
-  margin: 0 auto;
+  width: 640px;
+  min-height: 480px;
+  margin: 0;
+  margin-left: 10rem;
 }
 
 .lobby {
   background-color: #000;
-  min-height: 60vh;
   padding: 1.5rem;
   border-style: solid;
-  border-bottom-color: #333333;
-  border-right-color: #555555;
-  border-left-color: #BBBBBB;
-  border-top-color: #DDDDDD;
+  border-bottom-color: #BBBBBB;
+  border-right-color: #DDDDDD;
+  border-left-color: #333333;
+  border-top-color: #555555;
 }
 
 .lobby ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.lobby li {
+  margin-bottom: 0.4rem;
 }
 
 .lobby li a {
@@ -44,7 +52,6 @@ body {
   height: 5rem;
   display: block;
   background-color:#222;
-  /* background-image: url(./download.jpg); */
   border-style: solid;
   border-bottom-color: #333333;
   border-right-color: #555555;
