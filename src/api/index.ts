@@ -27,6 +27,29 @@ router.post("/connect", (req, res) => {
 });
 
 /**
+ * Handles updating an existing host
+ */
+router.post("/host/:hostId", (req, res) => {
+  const { hostId } = req.params;
+  const accessToken = parseAuthorizationHeader(req.headers.authorization);
+
+  if (!accessToken) {
+    throw new Error(`Unauthorized`);
+  }
+
+  if (!hostId) {
+    throw new Error("Not Found");
+  }
+  if (!req.body) {
+    throw new Error("Unprocessable Entity");
+  }
+
+  const host = store.update(hostId, req.body, accessToken);
+
+  res.json(host);
+});
+
+/**
  * Handles a host connection request
  */
 router.post("/host/:hostId/disconnect", (req, res) => {

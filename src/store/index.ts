@@ -32,6 +32,28 @@ class Store {
       return null;
     }
   }
+  update(id: string, data: Partial<ClientHost>, access_token: string) {
+    const host = this.hosts.find(
+      host => host.id === id && host.access_token === access_token
+    );
+    if (host) {
+      for (let prop in data) {
+        if (!host.hasOwnProperty(prop)) {
+          continue;
+        }
+
+        switch (prop) {
+          case "id":
+          case "access_token":
+            // Ignore these properties!
+            continue;
+          default:
+            (host as any)[prop] = (data as any)[prop];
+        }
+      }
+      return host;
+    }
+  }
 }
 
 /**
