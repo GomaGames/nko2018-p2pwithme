@@ -1,35 +1,43 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   box-sizing: border-box;
-  font-family: 'Press Start 2P', serif;
+  font-family: "Press Start 2P", serif;
   font-size: 10px;
 }
 
 body {
-  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url(../assets/images/green_marble.jpg);
-  color:white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(../assets/images/green_marble.jpg);
+  color: white;
 }
 
 header h1 {
   font-size: 4rem;
+  margin-top: 4rem;
 }
 
 .container {
   width: 640px;
-  min-height: 480px;
+  min-height: calc(100vh - 48px);
   margin: 0;
   margin-left: 10rem;
+  overflow: auto;
 }
 
 .lobby {
   background-color: #000;
+  margin-top: 4rem;
   padding: 1.5rem;
   border-style: solid;
-  border-bottom-color: #BBBBBB;
-  border-right-color: #DDDDDD;
+  border-bottom-color: #bbbbbb;
+  border-right-color: #dddddd;
   border-left-color: #333333;
   border-top-color: #555555;
 }
@@ -46,15 +54,15 @@ header h1 {
 
 .lobby li a {
   text-decoration: none;
-  color: #CED290ff;
+  color: #ced290ff;
   font-size: 2rem;
   padding: 1rem;
   height: 5rem;
   display: block;
-  background-color:#222;
+  background-color: #222;
   border-style: solid;
   border-bottom-color: #333333;
   border-right-color: #555555;
-  border-left-color: #BBBBBB;
-  border-top-color: #DDDDDD;
+  border-left-color: #bbbbbb;
+  border-top-color: #dddddd;
 }
