@@ -96,7 +96,9 @@ wss.on("connection", function connection(ws) {
     const host = connections.get(ws);
     connections.delete(ws);
 
-    store.unregister(host.access_token);
+    if (host) {
+      store.unregister(host.access_token);
+    }
     console.log("CLOSE");
   });
 
